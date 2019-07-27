@@ -7,6 +7,8 @@ let customers = [
   { id: 4, name: 'shep', email: 'shep@gmail.com'},
  ];
 
+customerList.addEventListener()
+
 const render = () => {
   const html = customers.map((customer, idx) => {
     return `
