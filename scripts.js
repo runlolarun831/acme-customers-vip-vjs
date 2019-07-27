@@ -9,7 +9,7 @@ let customers = [
 
 customerList.addEventListener('click', (event) => {
   if(event.target.tagName === 'BUTTON') {
-    const idx= [...event.target.parentNode.children].indexOf(event.target);
+    const idx= [...event.target.parentNode.parentNode.children].indexOf(event.target.parentNode);
     customers = customers.filter((customer, _index) => {
       return _index !== idx;
     });
@@ -20,10 +20,10 @@ customerList.addEventListener('click', (event) => {
 const render = () => {
   const html = customers.map((customer, idx) => {
     return `
-      <li idx='${idx}'><div>
-      ${customer.name} (${customer.email})
-      <button>Destroy</button>
-      </div></li>
+      <li>
+        ${customer.name} (${customer.email})
+        <button idx='${idx}'>Destroy</button>
+      </li>
     `
   }).join('');
   customerList.innerHTML = html;
